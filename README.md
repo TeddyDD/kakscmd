@@ -2,6 +2,8 @@
 
 Go library for serializing commands to Kakoune socket.
 
+Import: `go.teddydd.me/kakscmd`.
+
 ```sh
 make
 ./kak-raw-send -session 826387 -cmd 'eval -client client0 echo hello world' -debug
