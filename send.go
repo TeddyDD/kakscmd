@@ -28,6 +28,7 @@ const (
 	msgTypeCommand = 0x02
 
 	headerAndSizeFields = 4 + 4 + 1
+	finalNewLineSize    = 1
 )
 
 // SocketPath returns path to the socket for given named session.
@@ -40,7 +41,7 @@ func SocketPath(session string) string {
 }
 
 func prepareMsg(cmd []byte) commandMessage {
-	l := len(cmd) + 1 // +1 becuse of \n
+	l := len(cmd) + finalNewLineSize
 	return commandMessage{
 		messageType: msgTypeCommand,
 		messageSize: uint32(headerAndSizeFields + l),
